@@ -232,7 +232,7 @@ function ViewUsers() {
                                         variant="contained"
                                         type="submit"
                                     >
-                                        {isEditMode ? "UPDATE" : "ADD USER"}
+                                        {isEditMode ? "UPDATE" : "ADD"}
                                     </Button>
                                 </div>
                             </form>
