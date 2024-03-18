@@ -20,7 +20,7 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 function ViewUsers() {
     const [dataList, setDataList] = useState([]);
-    const [refreshData, setRefreshData] = useState(false);
+    const [refreshDataList, setRefreshDataList] = useState(false);
     const [modalState, setModalState] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
@@ -64,7 +64,7 @@ function ViewUsers() {
             .catch((error) => {
                 console.error("Error fetching data:", error);
             });
-    }, [refreshData]);
+    }, [refreshDataList]);
 
     const handleAddData = async (e) => {
         e.preventDefault();
@@ -78,7 +78,7 @@ function ViewUsers() {
             const result = await response.data;
 
             if (result.success) {
-                setRefreshData(!refreshData);
+                setRefreshDataList(!refreshDataList);
                 setModalState(false);
             }
             alert(result.message);
@@ -101,7 +101,7 @@ function ViewUsers() {
 
             if (result.success) {
                 alert(result.message);
-                setRefreshData(!refreshData);
+                setRefreshDataList(!refreshDataList);
                 setModalState(false);
             } else {
                 alert("Failed to update user. Please try again!.");
