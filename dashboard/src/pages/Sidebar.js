@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import { Add, Home, Info } from "@mui/icons-material";
+import { Home, PersonAddAlt1, ViewList } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
@@ -16,21 +16,21 @@ function Sidebar() {
 
                     <Link to="/addstudent">
                         <div className="tilecontent">
-                            <Add />
+                            <PersonAddAlt1 />
                             <p>ADD STUDENT</p>
                         </div>
                     </Link>
 
                     <Link to="/viewstudents">
                         <div className="tilecontent">
-                            <Info />
+                            <ViewList />
                             <p>VIEW STUDENTS</p>
                         </div>
                     </Link>
 
                     <Link to="/viewusers">
                         <div className="tilecontent">
-                            <Info />
+                            <ViewList />
                             <p>VIEW USERS</p>
                         </div>
                     </Link>
