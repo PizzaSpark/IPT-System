@@ -50,8 +50,11 @@ function ViewUsers() {
     };
 
     const handleChange = (e) => {
-        setUser({
-            ...user,
+        const setFunction = isEditMode ? setSelectedData : setUser;
+        const userObject = isEditMode ? selectedData : user;
+
+        setFunction({
+            ...userObject,
             [e.target.name || e.target.id]: e.target.value,
         });
     };
