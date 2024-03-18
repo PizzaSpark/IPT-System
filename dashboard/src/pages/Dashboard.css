@@ -1,0 +1,8 @@
+.dashboard {
+    display: flex;
+}
+
+.dcontent {
+    padding: 1em;
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+}
+
+.content {
+    padding: 1em;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* gets the unused space */
+}
