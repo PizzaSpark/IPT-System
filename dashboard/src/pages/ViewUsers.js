@@ -19,14 +19,13 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 function ViewUsers() {
-    const [data, setData] = useState([]);
-    const [selectedData, setSelectedData] = useState([]);
+    const [dataList, setDataList] = useState([]);
     const [refreshData, setRefreshData] = useState(false);
     const [modalState, setModalState] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const [user, setUser] = useState({
+    const [currentData, setCurrentData] = useState({
         firstname: "",
         lastname: "",
         middlename: "",
@@ -35,7 +34,7 @@ function ViewUsers() {
     });
 
     const openModal = (data, isEdit = false) => {
-        setSelectedData(data);
+        setCurrentData(data);
         setIsEditMode(isEdit);
         setModalState(true);
     };
@@ -50,11 +49,8 @@ function ViewUsers() {
     };
 
     const handleChange = (e) => {
-        const setFunction = isEditMode ? setSelectedData : setUser;
-        const userObject = isEditMode ? selectedData : user;
-
-        setFunction({
-            ...userObject,
+        setCurrentData({
+            ...currentData,
             [e.target.name || e.target.id]: e.target.value,
         });
     };
@@ -63,7 +59,7 @@ function ViewUsers() {
         axios
             .get(`http://localhost:1337/viewusers`)
             .then((response) => {
-                setData(response.data);
+                setDataList(response.data);
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);
@@ -76,7 +72,7 @@ function ViewUsers() {
         try {
             const response = await axios.post(
                 "http://localhost:1337/adduser",
-                user
+                currentData
             );
 
             const result = await response.data;
@@ -98,7 +94,7 @@ function ViewUsers() {
         try {
             const response = await axios.post(
                 "http://localhost:1337/updateuser",
-                selectedData
+                currentData
             );
 
             const result = response.data;
@@ -126,7 +122,7 @@ function ViewUsers() {
                 <Button
                     className="tablebutton"
                     variant="contained"
-                    onClick={() => openModal(data, false)}
+                    onClick={() => openModal(currentData, false)}
                 >
                     ADD USER
                 </Button>
@@ -142,18 +138,18 @@ function ViewUsers() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {data.map((data) => (
-                                <TableRow key={data.email}>
-                                    <TableCell>{data.firstname}</TableCell>
-                                    <TableCell>{data.lastname}</TableCell>
-                                    <TableCell>{data.middlename}</TableCell>
-                                    <TableCell>{data.email}</TableCell>
+                            {dataList.map((user) => (
+                                <TableRow key={user.email}>
+                                    <TableCell>{user.firstname}</TableCell>
+                                    <TableCell>{user.lastname}</TableCell>
+                                    <TableCell>{user.middlename}</TableCell>
+                                    <TableCell>{user.email}</TableCell>
 
                                     <TableCell>
                                         <Button
                                             variant="contained"
                                             onClick={() =>
-                                                openModal(data, true)
+                                                openModal(user, true)
                                             }
                                         >
                                             EDIT
@@ -168,14 +164,14 @@ function ViewUsers() {
                 <Modal open={modalState} onClose={closeModal}>
                     <Box className="modal">
                         {/* it will only render the typography if not null */}
-                        {selectedData && (
+                        {currentData && (
                             <form className="modalform" onSubmit={isEditMode ? handleUpdateData : handleAddData}>
                                 <TextField
                                     id="firstname"
                                     required
                                     label="first name"
                                     variant="outlined"
-                                    value={selectedData.firstname}
+                                    value={currentData.firstname}
                                     onChange={handleChange}
                                 />
 
@@ -184,7 +180,7 @@ function ViewUsers() {
                                     required
                                     label="last name"
                                     variant="outlined"
-                                    value={selectedData.lastname}
+                                    value={currentData.lastname}
                                     onChange={handleChange}
                                 />
 
@@ -193,7 +189,7 @@ function ViewUsers() {
                                     required
                                     label="middle name"
                                     variant="outlined"
-                                    value={selectedData.middlename}
+                                    value={currentData.middlename}
                                     onChange={handleChange}
                                 />
 
@@ -203,7 +199,7 @@ function ViewUsers() {
                                     disabled={isEditMode}
                                     label="email"
                                     variant="outlined"
-                                    value={selectedData.email}
+                                    value={currentData.email}
                                     onChange={handleChange}
                                 />
 
@@ -213,7 +209,7 @@ function ViewUsers() {
                                     label="password"
                                     type={showPassword ? 'text' : 'password'}
                                     variant="outlined"
-                                    value={selectedData.password}
+                                    value={currentData.password}
                                     onChange={handleChange}
                                     InputProps={{
                                         endAdornment: (
