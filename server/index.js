@@ -124,7 +124,7 @@ app.post("/deletestudent", async (req, res) => {
     }
 });
 
-mongoose.connect('mongodb://localhost:27017/ipt', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/ipt')
   .then(() => console.log('Database connected successfully'))
   .catch(err => console.error('Database connection error', err));
 
