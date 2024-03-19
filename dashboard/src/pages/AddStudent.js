@@ -13,7 +13,7 @@ import { useState } from "react";
 import axios from 'axios';
 
 function AddStudent() {
-    const [student, setStudent] = useState({
+    const [initialData, setInitialData] = useState({
         id: "",
         firstname: "",
         lastname: "",
@@ -21,6 +21,8 @@ function AddStudent() {
         course: "",
         year: "",
     });
+
+    const [student, setStudent] = useState(initialData);
 
     const handleChange = (e) => {
         if (e.target.id == "id") {
@@ -55,14 +57,7 @@ function AddStudent() {
             const result = response.data;
             
             if (result.success) {
-                setStudent({
-                    id: "",
-                    firstname: "",
-                    lastname: "",
-                    middlename: "",
-                    course: "",
-                    year: "",
-                });
+                setStudent(initialData);
             }
             alert(result.message);
         } catch (error) {
