@@ -25,13 +25,15 @@ function ViewUsers() {
     const [isEditMode, setIsEditMode] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const [currentData, setCurrentData] = useState({
+    const [initialData, setInitialData] = useState({
         firstname: "",
         lastname: "",
         middlename: "",
         email: "",
         password: "",
     });
+
+    const [currentData, setCurrentData] = useState(initialData);
 
     const openModal = (data, isEdit = false) => {
         setCurrentData(data);
@@ -122,7 +124,7 @@ function ViewUsers() {
                 <Button
                     className="tablebutton"
                     variant="contained"
-                    onClick={() => openModal(currentData, false)}
+                    onClick={() => openModal(initialData, false)}
                 >
                     ADD USER
                 </Button>
