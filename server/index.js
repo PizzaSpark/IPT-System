@@ -3,8 +3,9 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require("fs");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const User = require("./models/user.model");
+const path = require('path');
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -12,7 +13,7 @@ const port = 1337;
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-  });
+});
 
 app.get("/", (req, res) => {
     res.send("Hello, world!");
@@ -23,8 +24,16 @@ app.post("/addstudent", (req, res) => {
     const studentData = req.body;
 
     let existingData = [];
+
+    const filePath = path.join(__dirname, "students.json");
+
     try {
-        existingData = JSON.parse(fs.readFileSync("students.json"));
+        if (fs.existsSync(filePath)) {
+            existingData = JSON.parse(fs.readFileSync(filePath));
+        } else {
+            fs.writeFileSync(filePath, JSON.stringify([]));
+            existingData = [];
+        }
     } catch (error) {
         console.error("Error reading student data:", error);
         res.status(500).json({ error: "Internal Server Error" });
@@ -76,9 +85,7 @@ app.post("/updatestudent", async (req, res) => {
         );
 
         res.json({ success: true, message: "Student updated successfully!" });
-    } 
-    
-    else {
+    } else {
         res.json({ success: false, message: "Student not found" });
     }
 });
@@ -86,6 +93,20 @@ app.post("/updatestudent", async (req, res) => {
 //read
 app.get("/viewstudents", (req, res) => {
     try {
+        const filePath = path.join(__dirname, "students.json");
+
+        try {
+            if (fs.existsSync(filePath)) {
+                existingData = JSON.parse(fs.readFileSync(filePath));
+            } else {
+                fs.writeFileSync(filePath, JSON.stringify([]));
+                existingData = [];
+            }
+        } catch (error) {
+            console.error("Error reading student data:", error);
+            res.status(500).json({ error: "Internal Server Error" });
+        }
+        
         const studentData = JSON.parse(fs.readFileSync("students.json"));
         res.json(studentData);
     } catch (error) {
@@ -103,11 +124,10 @@ app.post("/deletestudent", async (req, res) => {
         existingData = JSON.parse(fs.readFileSync("databank.json"));
     } catch (error) {
         console.error("Error reading student data:", error);
-        res.status(500).json({ error: "Internal Server Error" });    }
+        res.status(500).json({ error: "Internal Server Error" });
+    }
 
-    const dataIndex = existingData.findIndex(
-        (data) => data.id === newData.id
-    );
+    const dataIndex = existingData.findIndex((data) => data.id === newData.id);
 
     if (dataIndex !== -1) {
         existingData.splice(dataIndex, 1);
@@ -118,15 +138,15 @@ app.post("/deletestudent", async (req, res) => {
         );
 
         res.json({ success: true, message: "Student deleted successfully!" });
-    }
-    else {
+    } else {
         res.json({ success: false, message: "Student not found" });
     }
 });
 
-mongoose.connect('mongodb://localhost:27017/ipt')
-  .then(() => console.log('Database connected successfully'))
-  .catch(err => console.error('Database connection error', err));
+mongoose
+    .connect("mongodb://localhost:27017/ipt")
+    .then(() => console.log("Database connected successfully"))
+    .catch((err) => console.error("Database connection error", err));
 
 //add user
 app.post("/adduser", async (req, res) => {
