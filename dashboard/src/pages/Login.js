@@ -12,6 +12,7 @@ import axios from "axios";
 import "./Login.css";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [initialData, setInitialData] = useState({
@@ -21,10 +22,10 @@ function Login() {
     const [user, setUser] = useState(initialData);
 
     const [showPassword, setShowPassword] = useState(false);
-    const theme = useTheme();
     const handleTogglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
     };
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -39,6 +40,7 @@ function Login() {
 
             if (result.success) {
                 //route to another page
+                navigate('/'); // Use navigate instead of setRedirectTo
             }
             alert(result.message);
         } catch (error) {
