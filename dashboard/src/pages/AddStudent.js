@@ -6,10 +6,9 @@ import {
     Select,
     TextField,
 } from "@mui/material";
-import React from "react";
+import { React, useState } from "react";
 import Sidebar from "./Sidebar";
 import "./AddStudent.css";
-import { useState } from "react";
 import axios from 'axios';
 
 function AddStudent() {

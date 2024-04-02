@@ -191,3 +191,25 @@ app.post("/updateuser", async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+
+//login user
+app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.json({ message: "User not found" });
+        }
+
+        if (password !== user.password) {
+            return res.json({ message: "Invalid password" });
+        }
+
+        res.json({ success: true, message: "Logged in successfully" });
+    } catch (error) {
+        console.error("Error logging in:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
