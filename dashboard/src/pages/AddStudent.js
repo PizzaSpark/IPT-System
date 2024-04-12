@@ -12,6 +12,7 @@ import "./AddStudent.css";
 import axios from 'axios';
 
 function AddStudent() {
+    //MARK: LOGIC
     const initialData = {
         id: "",
         firstname: "",
@@ -65,6 +66,7 @@ function AddStudent() {
         }
     };
 
+    //MARK: DISPLAY
     return (
         <div className="container">
             <Sidebar />

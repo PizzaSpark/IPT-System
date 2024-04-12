@@ -165,6 +165,7 @@ function ViewUsers() {
                     </Table>
                 </TableContainer>
 
+                {/*MARK: MODAL*/}
                 <Modal open={modalState} onClose={closeModal}>
                     <Box className="modal">
                         {/* it will only render the typography if not null */}

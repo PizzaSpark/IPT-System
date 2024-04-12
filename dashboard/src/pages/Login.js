@@ -15,6 +15,7 @@ import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
+    //MARK: LOGIC
     const initialData = {
         email: "",
         password: "",
@@ -62,6 +63,7 @@ function Login() {
         });
     };
 
+    //MARK: FRONT
     return (
         <div className="logincontent">
             <Card className="logincard">

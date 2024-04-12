@@ -23,6 +23,7 @@ import {
 import { Refresh } from "@mui/icons-material";
 
 function ViewStudent() {
+    //MARK: LOGIC
     const [students, setStudents] = useState([]);
     const [modalState, setModalState] = useState(false);
     const [currentStudent, setCurrentStudent] = useState(null);
@@ -96,6 +97,7 @@ function ViewStudent() {
         }
     };
 
+    //MARK: DISPLAY
     return (
         <div className="container">
             <Sidebar />
@@ -140,6 +142,7 @@ function ViewStudent() {
                     </Table>
                 </TableContainer>
 
+                {/*MARK: MODAL */}
                 <Modal
                     open={modalState}
                     onClose={handleClose}
