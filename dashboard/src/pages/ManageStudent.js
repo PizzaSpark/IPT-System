@@ -145,6 +145,7 @@ function ManageStudent() {
                         <TableBody>
                             {dataList.map((student) => (
                                 <TableRow key={student.id}>
+                                <TableCell>{student.id}</TableCell>
                                     <TableCell>{student.firstname}</TableCell>
                                     <TableCell>{student.lastname}</TableCell>
                                     <TableCell>{student.middlename}</TableCell>
@@ -182,7 +183,7 @@ function ManageStudent() {
                                 <TextField
                                     id="id"
                                     required
-                                    label="first name"
+                                    label="ID"
                                     variant="outlined"
                                     value={currentData.id}
                                     onChange={handleChange}
