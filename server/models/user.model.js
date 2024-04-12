@@ -11,9 +11,9 @@ const User = new Schema(
     email: { ...requiredString, unique: true },
     password: requiredString,
   },
-  { collection: "user-data" }
+  { collection: 'UserData' } 
 );
 
-const model = _model("UserData", User);
+const model = _model('UserData', User);
 
 module.exports = model;
