@@ -13,7 +13,7 @@ body {
 }
 
 .items {
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,4 +29,10 @@ body {
     align-items: center;
     color: #ffffff;
     gap: 5px;
+}
+
+.logout {
+    display: flex;
+    padding-top: 5rem;
+    width: 100%;
 }
