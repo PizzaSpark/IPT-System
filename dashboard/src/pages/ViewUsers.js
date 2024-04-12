@@ -19,19 +19,20 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 function ViewUsers() {
+    //MARK: INIT
     const [dataList, setDataList] = useState([]);
     const [refreshDataList, setRefreshDataList] = useState(false);
     const [modalState, setModalState] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const [initialData, setInitialData] = useState({
+    const initialData = {
         firstname: "",
         lastname: "",
         middlename: "",
         email: "",
         password: "",
-    });
+    };
 
     const [currentData, setCurrentData] = useState(initialData);
 
@@ -114,6 +115,7 @@ function ViewUsers() {
         }
     };
 
+    //MARK: DISPLAY
     return (
         <div className="container">
             <Sidebar />

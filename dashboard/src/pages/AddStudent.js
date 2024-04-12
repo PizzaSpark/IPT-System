@@ -12,14 +12,14 @@ import "./AddStudent.css";
 import axios from 'axios';
 
 function AddStudent() {
-    const [initialData, setInitialData] = useState({
+    const initialData = {
         id: "",
         firstname: "",
         lastname: "",
         middlename: "",
         course: "",
         year: "",
-    });
+    };
 
     const [student, setStudent] = useState(initialData);
 

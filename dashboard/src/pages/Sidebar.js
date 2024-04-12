@@ -7,7 +7,7 @@ function Sidebar() {
     return (
         <div className="sidebar">
             <div className="items">
-                    <Link to="/">
+                    <Link to="/dashboard">
                         <div className="tilecontent">
                             <Home />
                             <p>HOME</p>
@@ -32,6 +32,13 @@ function Sidebar() {
                         <div className="tilecontent">
                             <ViewList />
                             <p>VIEW USERS</p>
+                        </div>
+                    </Link>
+
+                    <Link to="/managestudents">
+                        <div className="tilecontent">
+                            <ViewList />
+                            <p>MANAGE STUDENTS</p>
                         </div>
                     </Link>
             </div>
