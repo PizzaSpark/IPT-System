@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const mongoose = require("mongoose");
 const User = require("./models/user.model");
-const Student = require("./models/user.model");
+const Student = require("./models/student.model");
 const path = require('path');
 app.use(cors());
 app.use(bodyParser.json());
