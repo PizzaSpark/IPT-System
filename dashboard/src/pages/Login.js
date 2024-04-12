@@ -117,7 +117,7 @@ function Login() {
                                 variant="contained"
                                 onClick={handleRedirectToSignUp}
                             >
-                                SIGN UP
+                                NO ACCOUNT YET?
                             </Button>
                         </div>
                     </form>
