@@ -1,8 +1,10 @@
-import React from "react";
+import { React, useEffect } from "react";
 import "./Dashboard.css";
 import Sidebar from "./Sidebar";
+import useAuthenticationCheck from '../auth/useAuthenticationCheck';
 
 function Dashboard() {
+    useAuthenticationCheck();
     return (
         <div className="dashboard">
             <Sidebar />

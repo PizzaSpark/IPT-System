@@ -18,6 +18,8 @@ import {
     IconButton
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import useAuthenticationCheck from '../auth/useAuthenticationCheck';
+
 function ViewUsers() {
     //MARK: INIT
     const [dataList, setDataList] = useState([]);
@@ -25,7 +27,7 @@ function ViewUsers() {
     const [modalState, setModalState] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-
+    useAuthenticationCheck();
     const initialData = {
         firstname: "",
         lastname: "",

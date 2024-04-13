@@ -12,9 +12,11 @@ import axios from "axios";
 import "./SignUp.css";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import useAuthenticationCheck from '../auth/useAuthenticationCheck';
 
 function SignUp() {
     //MARK: LOGIC
+    useAuthenticationCheck();
     const initialData = {
         firstname: "",
         lastname: "",

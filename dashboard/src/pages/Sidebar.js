@@ -5,7 +5,18 @@ import { Link } from "react-router-dom";
 import {
     Button,
 } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
+
 function Sidebar() {
+    const navigate = useNavigate();
+
+    const handleLogout = async (e) => {
+        e.preventDefault();
+
+        localStorage.removeItem("user");
+        navigate("/");
+    };
+
     return (
         <div className="sidebar">
             <div className="items">
@@ -45,7 +56,7 @@ function Sidebar() {
                 </Link>
 
                 <div className="logout">
-                    <Button variant="contained">LOGOUT</Button>
+                    <Button variant="contained" onClick={handleLogout}>LOGOUT</Button>
                 </div>
             </div>
 

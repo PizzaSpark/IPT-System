@@ -21,6 +21,7 @@ import {
     InputLabel,
 } from "@mui/material";
 import { Refresh } from "@mui/icons-material";
+import useAuthenticationCheck from '../auth/useAuthenticationCheck';
 
 function ViewStudent() {
     //MARK: LOGIC
@@ -29,7 +30,7 @@ function ViewStudent() {
     const [currentStudent, setCurrentStudent] = useState(null);
     const [refreshData, setRefreshData] = useState(false);
     //for modal
-
+    useAuthenticationCheck();
     const handleOpen = (studentO) => {
         setCurrentStudent(studentO);
         setModalState(true);

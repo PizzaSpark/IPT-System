@@ -7,11 +7,10 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import "./Login.css";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -40,7 +39,7 @@ function Login() {
             const result = response.data;
 
             if (result.success) {
-                //route to another page
+                localStorage.setItem("user", JSON.stringify(user));
                 navigate("/dashboard");
             }
             alert(result.message);
@@ -63,6 +62,31 @@ function Login() {
         });
     };
 
+    useEffect(() => {
+        const authenticateUser = async () => {
+            const storedCreds = JSON.parse(localStorage.getItem("user"));
+
+            if (user) {
+                try {
+                    const response = await axios.post(
+                        "http://localhost:1337/login",
+                        storedCreds
+                    );
+
+                    const result = response.data;
+
+                    if (result.success) {
+                        navigate("/dashboard");
+                    }
+                } catch (error) {
+                    console.error("Error authenticating:", error);
+                    alert("An error occured. Please try again.");
+                }
+            }
+        };
+
+        authenticateUser();
+    }, []);
     //MARK: FRONT
     return (
         <div className="logincontent">
