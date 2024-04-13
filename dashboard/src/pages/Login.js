@@ -40,6 +40,7 @@ function Login() {
 
             if (result.success) {
                 localStorage.setItem("user", JSON.stringify(user));
+                console.log(user);
                 navigate("/dashboard");
             }
             alert(result.message);
