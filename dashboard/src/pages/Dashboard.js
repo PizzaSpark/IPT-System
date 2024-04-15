@@ -6,9 +6,9 @@ import useAuthenticationCheck from '../auth/useAuthenticationCheck';
 function Dashboard() {
     useAuthenticationCheck();
     return (
-        <div className="dashboard">
+        <div className="container">
             <Sidebar />
-            <div className="dcontent">
+            <div className="content">
                 <h1>Welcome to Saint Mary's University</h1>
             </div>
         </div>

@@ -88,6 +88,9 @@ function SignUp() {
                             variant="outlined"
                             value={user.firstname}
                             onChange={handleChange}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                         />
 
                         <TextField
@@ -98,6 +101,9 @@ function SignUp() {
                             variant="outlined"
                             value={user.lastname}
                             onChange={handleChange}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                         />
 
                         <TextField
@@ -108,6 +114,9 @@ function SignUp() {
                             variant="outlined"
                             value={user.middlename}
                             onChange={handleChange}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                         />
 
                         <TextField
@@ -118,6 +127,9 @@ function SignUp() {
                             variant="outlined"
                             value={user.email}
                             onChange={handleChange}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                         />
 
                         <TextField
@@ -129,6 +141,9 @@ function SignUp() {
                             variant="outlined"
                             value={user.password}
                             onChange={handleChange}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                             InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="end">
@@ -158,6 +173,9 @@ function SignUp() {
                             variant="outlined"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                             InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="end">

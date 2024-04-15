@@ -104,6 +104,9 @@ function Login() {
                             variant="outlined"
                             value={user.email}
                             onChange={handleChange}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                         />
 
                         <TextField
@@ -115,6 +118,9 @@ function Login() {
                             variant="outlined"
                             value={user.password}
                             onChange={handleChange}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                             InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="end">

@@ -184,6 +184,7 @@ function ManageStudent() {
                                     id="id"
                                     required
                                     label="ID"
+                                    disabled={isEditMode}
                                     variant="outlined"
                                     value={currentData.id}
                                     onChange={handleChange}
