@@ -19,6 +19,8 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import useAuthenticationCheck from '../auth/useAuthenticationCheck';
+import AuthenticateUser from "../auth/authenticateUser";
+import { useNavigate } from 'react-router-dom';
 
 function ViewUsers() {
     //MARK: INIT
@@ -28,6 +30,7 @@ function ViewUsers() {
     const [isEditMode, setIsEditMode] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     useAuthenticationCheck();
+    const navigate = useNavigate();
     const initialData = {
         firstname: "",
         lastname: "",
@@ -108,6 +111,7 @@ function ViewUsers() {
                 alert(result.message);
                 setRefreshDataList(!refreshDataList);
                 setModalState(false);
+                AuthenticateUser(navigate);
             } else {
                 alert("Failed to update user. Please try again!.");
             }
