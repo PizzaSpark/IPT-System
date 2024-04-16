@@ -112,12 +112,13 @@ function ViewStudent() {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>id</TableCell>
-                                <TableCell>firstname</TableCell>
-                                <TableCell>lastname</TableCell>
-                                <TableCell>middlename</TableCell>
-                                <TableCell>course</TableCell>
-                                <TableCell>year</TableCell>
+                                <TableCell>ID</TableCell>
+                                <TableCell>First Name</TableCell>
+                                <TableCell>Last Name</TableCell>
+                                <TableCell>Middle Name</TableCell>
+                                <TableCell>Course</TableCell>
+                                <TableCell>Year</TableCell>
+                                <TableCell>EDIT</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>

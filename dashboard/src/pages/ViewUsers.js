@@ -180,7 +180,7 @@ function ViewUsers() {
                                 <TextField
                                     id="firstname"
                                     required
-                                    label="first name"
+                                    label="First Name"
                                     variant="outlined"
                                     value={currentData.firstname}
                                     onChange={handleChange}
@@ -189,7 +189,7 @@ function ViewUsers() {
                                 <TextField
                                     id="lastname"
                                     required
-                                    label="last name"
+                                    label="Last Name"
                                     variant="outlined"
                                     value={currentData.lastname}
                                     onChange={handleChange}
@@ -198,7 +198,7 @@ function ViewUsers() {
                                 <TextField
                                     id="middlename"
                                     required
-                                    label="middle name"
+                                    label="Middle Name"
                                     variant="outlined"
                                     value={currentData.middlename}
                                     onChange={handleChange}
@@ -208,7 +208,7 @@ function ViewUsers() {
                                     id="email"
                                     required
                                     disabled={isEditMode}
-                                    label="email"
+                                    label="Email"
                                     variant="outlined"
                                     value={currentData.email}
                                     onChange={handleChange}
@@ -217,7 +217,7 @@ function ViewUsers() {
                                 <TextField
                                     id="password"
                                     required
-                                    label="password"
+                                    label="Password"
                                     type={showPassword ? 'text' : 'password'}
                                     variant="outlined"
                                     value={currentData.password}

@@ -193,7 +193,7 @@ function ManageStudent() {
                                 <TextField
                                     id="firstname"
                                     required
-                                    label="first name"
+                                    label="First Name"
                                     variant="outlined"
                                     value={currentData.firstname}
                                     onChange={handleChange}
@@ -202,7 +202,7 @@ function ManageStudent() {
                                 <TextField
                                     id="lastname"
                                     required
-                                    label="last name"
+                                    label="Last Name"
                                     variant="outlined"
                                     value={currentData.lastname}
                                     onChange={handleChange}
@@ -211,7 +211,7 @@ function ManageStudent() {
                                 <TextField
                                     id="middlename"
                                     required
-                                    label="middle name"
+                                    label="Middle Name"
                                     variant="outlined"
                                     value={currentData.middlename}
                                     onChange={handleChange}
@@ -220,7 +220,7 @@ function ManageStudent() {
                                 <TextField
                                     id="course"
                                     required
-                                    label="course"
+                                    label="Course"
                                     variant="outlined"
                                     value={currentData.course}
                                     onChange={handleChange}
