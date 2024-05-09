@@ -10,7 +10,6 @@ import { React, useState } from "react";
 import Sidebar from "./Sidebar";
 import "./AddStudent.css";
 import axios from 'axios';
-import useAuthenticationCheck from '../auth/useAuthenticationCheck';
 
 function AddStudent() {
     //MARK: LOGIC
@@ -22,7 +21,6 @@ function AddStudent() {
         course: "",
         year: "",
     };
-    useAuthenticationCheck();
     const [student, setStudent] = useState(initialData);
 
     const handleChange = (e) => {

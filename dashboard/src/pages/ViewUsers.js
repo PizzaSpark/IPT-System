@@ -18,7 +18,6 @@ import {
     IconButton
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import useAuthenticationCheck from '../auth/useAuthenticationCheck';
 import AuthenticateUser from "../auth/authenticateUser";
 import { useNavigate } from 'react-router-dom';
 
@@ -29,7 +28,6 @@ function ViewUsers() {
     const [modalState, setModalState] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-    useAuthenticationCheck();
     const navigate = useNavigate();
     const initialData = {
         firstname: "",

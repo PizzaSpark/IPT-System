@@ -19,14 +19,12 @@ import {
     Select,
     MenuItem
 } from "@mui/material";
-import useAuthenticationCheck from '../auth/useAuthenticationCheck';
 
 function ManageStudent() {
     const [dataList, setDataList] = useState([]);
     const [refreshDataList, setRefreshDataList] = useState(false);
     const [modalState, setModalState] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
-    useAuthenticationCheck();
     //MARK: INIT
     const initialData = {
         id: "",
