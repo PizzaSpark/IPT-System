@@ -57,6 +57,10 @@ function ManageStudent() {
         });
     };
 
+    const handleTogglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     useEffect(() => {
         axios
             .get(`http://localhost:1337/viewstudentsmongo`)
