@@ -23,7 +23,7 @@ function Login() {
 
     const [showPassword, setShowPassword] = useState(false);
     const handleTogglePasswordVisibility = () => {
-        setShowPassword((prevShowPassword) => !prevShowPassword);
+        setShowPassword(!showPassword);
     };
     const navigate = useNavigate();
 
@@ -39,8 +39,6 @@ function Login() {
             const result = response.data;
 
             if (result.success) {
-                localStorage.setItem("user", JSON.stringify(user));
-                console.log(user);
                 navigate("/dashboard");
             }
             alert(result.message);
@@ -62,7 +60,7 @@ function Login() {
             [e.target.name || e.target.id]: e.target.value,
         });
     };
-    
+
     //MARK: FRONT
     return (
         <div className="logincontent">
