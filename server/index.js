@@ -281,3 +281,19 @@ app.post("/updatestudentmongo", async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+
+app.post("/studentinfo", async (req, res) => {
+    const incomingData = req.body;
+
+    try {
+        const student = await Student.findOne({ id: incomingData.id });
+        if (!student) {
+            res.status(404).json({ success: false, message: "Student not found" });
+        } else {
+            res.json(student);
+        }
+    } catch (error) {
+        console.error("Error getting student data:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
