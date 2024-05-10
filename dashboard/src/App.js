@@ -7,6 +7,7 @@ import ViewUsers from "./pages/ViewUsers";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import ManageStudent from "./pages/ManageStudent";
+import StudentDashboard from "./pages/StudentDashboard";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/viewstudents" element={<ViewStudent />} />
                 <Route path="/viewusers" element={<ViewUsers />} />
                 <Route path="/managestudents" element={<ManageStudent />} />
+                <Route path="/studentdashboard" element={<StudentDashboard />} />
             </Routes>
         </BrowserRouter>
     );
