@@ -10,7 +10,6 @@ const User = new Schema(
     middlename: requiredString,
     email: { ...requiredString, unique: true },
     password: requiredString,
-    role: { ...requiredString, default: 'student' },
   },
   { collection: 'UserData' } 
 );
