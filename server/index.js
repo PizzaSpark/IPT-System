@@ -197,21 +197,26 @@ app.post("/updateuser", async (req, res) => {
 
 //MARK: AUTH
 //login user
-app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
+app.post("/loginuser", async (req, res) => {
+    const { identifier, password } = req.body;
 
     try {
-        const user = await User.findOne({ email });
+        let user = await User.findOne({ email: identifier });
+        let role = 'user';
 
         if (!user) {
-            return res.json({ message: "User not found" });
+            user = await Student.findOne({ id: identifier });
+            if (!user) {
+                return res.json({ message: "User not found" });
+            }
+            role = 'student';
         }
 
         if (password !== user.password) {
             return res.json({ message: "Invalid password" });
         }
 
-        res.json({ success: true, message: "Logged in successfully" });
+        res.json({ success: true, message: "Logged in successfully", role: role });
     } catch (error) {
         console.error("Error logging in:", error);
         res.status(500).json({ error: "Internal Server Error" });
