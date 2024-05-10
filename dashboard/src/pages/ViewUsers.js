@@ -45,7 +45,7 @@ function ViewUsers() {
     };
 
     const handleTogglePasswordVisibility = () => {
-        setShowPassword((prevShowPassword) => !prevShowPassword);
+        setShowPassword(!showPassword);
     };
 
     const closeModal = () => {
