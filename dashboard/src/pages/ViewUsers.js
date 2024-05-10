@@ -18,7 +18,6 @@ import {
     IconButton
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import AuthenticateUser from "../auth/authenticateUser";
 import { useNavigate } from 'react-router-dom';
 
 function ViewUsers() {

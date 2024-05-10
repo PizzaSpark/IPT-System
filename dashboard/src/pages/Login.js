@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 function Login() {
     //MARK: LOGIC
     const initialData = {
-        email: "",
+        identifier: "",
         password: "",
     };
     const [user, setUser] = useState(initialData);
@@ -70,12 +70,12 @@ function Login() {
 
                     <form className="loginform" onSubmit={handleLogin}>
                         <TextField
-                            id="email"
-                            className="email"
+                            id="identifier"
+                            className="identifier"
                             required
-                            label="Email"
+                            label="Email or ID"
                             variant="outlined"
-                            value={user.email}
+                            value={user.identifier}
                             onChange={handleChange}
                             InputLabelProps={{
                                 shrink: true,
