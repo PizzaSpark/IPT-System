@@ -11,6 +11,7 @@ const Student = new Schema(
     middlename: {type: String},
     course: requiredString,
     year: requiredString,
+    password: requiredString,
   },
   { collection: 'StudentData' } 
 );
