@@ -19,7 +19,7 @@ function Login() {
         identifier: "",
         password: "",
     };
-    const [user, setUser] = useState(initialData);
+    const [credentials, setCredentials] = useState(initialData);
 
     const [showPassword, setShowPassword] = useState(false);
     const handleTogglePasswordVisibility = () => {
@@ -33,13 +33,17 @@ function Login() {
         try {
             const response = await axios.post(
                 "http://localhost:1337/login",
-                user
+                credentials
             );
 
             const result = response.data;
 
-            if (result.success) {
+            if (result.role == "user") {
                 navigate("/dashboard");
+            }
+            else if (result.role == "student") {
+                localStorage.setItem('studentId', result.id);
+                navigate("/studentdashboard");
             }
             alert(result.message);
         } catch (error) {
@@ -55,8 +59,8 @@ function Login() {
     };
 
     const handleChange = (e) => {
-        setUser({
-            ...user,
+        setCredentials({
+            ...credentials,
             [e.target.name || e.target.id]: e.target.value,
         });
     };
