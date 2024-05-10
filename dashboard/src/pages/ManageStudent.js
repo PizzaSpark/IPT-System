@@ -25,6 +25,8 @@ function ManageStudent() {
     const [refreshDataList, setRefreshDataList] = useState(false);
     const [modalState, setModalState] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+
     //MARK: INIT
     const initialData = {
         id: "",
@@ -33,6 +35,7 @@ function ManageStudent() {
         middlename: "",
         course: "",
         year: "",
+        password: "",
     };
 
     const [currentData, setCurrentData] = useState(initialData);
@@ -239,6 +242,28 @@ function ManageStudent() {
                                         <MenuItem value="5">5</MenuItem>
                                     </Select>
                                 </FormControl>
+
+                                <TextField
+                                    id="password"
+                                    required
+                                    label="Password"
+                                    type={showPassword ? 'text' : 'password'}
+                                    variant="outlined"
+                                    value={currentData.password}
+                                    onChange={handleChange}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label="toggle password visibility"
+                                                    onClick={handleTogglePasswordVisibility}
+                                                >
+                                                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
 
                                 <div className="buttonsmodal">
                                     <Button
