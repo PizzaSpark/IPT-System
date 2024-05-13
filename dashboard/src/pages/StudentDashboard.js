@@ -1,4 +1,6 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
+import Sidebar from "./Sidebar";
+import axios from "axios";
 
 export default function StudentDashboard() {
     const initialData = {
@@ -27,7 +29,7 @@ export default function StudentDashboard() {
     return (
         <div>
             <div className="container">
-                <Sidebar />
+                <Sidebar role='student' />
                 <div className="content">
                     <h1>YOUR STUDENT INFO</h1>
                     {studentData && (

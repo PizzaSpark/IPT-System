@@ -35,14 +35,12 @@ function Login() {
                 "http://localhost:1337/login",
                 credentials
             );
-
             const result = response.data;
-
             if (result.role == "user") {
                 navigate("/dashboard");
             }
             else if (result.role == "student") {
-                localStorage.setItem('studentId', result.id);
+                localStorage.setItem('studentId', credentials.identifier);
                 navigate("/studentdashboard");
             }
             alert(result.message);
@@ -79,7 +77,7 @@ function Login() {
                             required
                             label="Email or ID"
                             variant="outlined"
-                            value={user.identifier}
+                            value={credentials.identifier}
                             onChange={handleChange}
                             InputLabelProps={{
                                 shrink: true,
@@ -93,7 +91,7 @@ function Login() {
                             required
                             label="Password"
                             variant="outlined"
-                            value={user.password}
+                            value={credentials.password}
                             onChange={handleChange}
                             InputLabelProps={{
                                 shrink: true,

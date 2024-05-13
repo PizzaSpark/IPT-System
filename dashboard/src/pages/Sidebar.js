@@ -7,53 +7,54 @@ import {
 } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 
-function Sidebar() {
+function Sidebar({ role = 'user' }) {
     const navigate = useNavigate();
 
     const handleLogout = async (e) => {
         e.preventDefault();
 
-        localStorage.removeItem("user");
         navigate("/");
     };
+
+    const LinkOrText = role === 'user' ? Link : 'div';
 
     return (
         <div className="sidebar">
             <div className="items">
-                <Link to="/dashboard">
+                <LinkOrText to="/dashboard">
                     <div className="tilecontent">
                         <Home />
                         <p>HOME</p>
                     </div>
-                </Link>
+                </LinkOrText>
 
-                <Link to="/addstudent">
+                <LinkOrText to="/addstudent">
                     <div className="tilecontent">
                         <PersonAddAlt1 />
                         <p>ADD STUDENT</p>
                     </div>
-                </Link>
+                </LinkOrText>
 
-                <Link to="/viewstudents">
+                <LinkOrText to="/viewstudents">
                     <div className="tilecontent">
                         <ViewList />
                         <p>VIEW STUDENTS</p>
                     </div>
-                </Link>
+                </LinkOrText>
 
-                <Link to="/viewusers">
+                <LinkOrText to="/viewusers">
                     <div className="tilecontent">
                         <ViewList />
                         <p>VIEW USERS</p>
                     </div>
-                </Link>
+                </LinkOrText>
 
-                <Link to="/managestudents">
+                <LinkOrText to="/managestudents">
                     <div className="tilecontent">
                         <ViewList />
                         <p>MANAGE STUDENTS</p>
                     </div>
-                </Link>
+                </LinkOrText>
 
                 <div className="logout">
                     <Button variant="contained" onClick={handleLogout}>LOGOUT</Button>

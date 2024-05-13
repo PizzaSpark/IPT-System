@@ -108,7 +108,6 @@ function ViewUsers() {
                 alert(result.message);
                 setRefreshDataList(!refreshDataList);
                 setModalState(false);
-                AuthenticateUser(navigate);
             } else {
                 alert("Failed to update user. Please try again!.");
             }
