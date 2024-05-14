@@ -1,5 +1,4 @@
 import { React, useEffect } from "react";
-import "./Dashboard.css";
 import Sidebar from "./Sidebar";
 
 function Dashboard() {
