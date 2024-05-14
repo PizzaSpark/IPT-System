@@ -31,7 +31,7 @@ export default function StudentDashboard() {
             <div className="container">
                 <Sidebar role='student' />
                 <div className="content">
-                    <h1>YOUR STUDENT INFO</h1>
+                    <h1>STUDENT INFO</h1>
                     {studentData && (
                         <div>
                             <p>ID: {studentData.id}</p>
@@ -40,7 +40,7 @@ export default function StudentDashboard() {
                             <p>Middle Name: {studentData.middlename}</p>
                             <p>Course: {studentData.course}</p>
                             <p>Year: {studentData.year}</p>
-                            <p>Password: {studentData.password}</p>
+                            <p>Password: {studentData.password.replace(/./g, '*')}</p>
                         </div>
                     )}
                 </div>
