@@ -2,21 +2,22 @@ import React from "react";
 import "./Sidebar.css";
 import { Home, PersonAddAlt1, ViewList } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import {
-    Button,
-} from "@mui/material";
-import { useNavigate } from 'react-router-dom';
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-function Sidebar({ role = 'user' }) {
+function Sidebar({ role = "user" }) {
     const navigate = useNavigate();
 
     const handleLogout = async (e) => {
         e.preventDefault();
 
+        localStorage.removeItem("role");
+        localStorage.removeItem("studentId");
+
         navigate("/");
     };
 
-    const LinkOrText = role === 'user' ? Link : 'div';
+    const LinkOrText = role === "user" ? Link : "div";
 
     return (
         <div className="sidebar">
@@ -57,11 +58,11 @@ function Sidebar({ role = 'user' }) {
                 </LinkOrText>
 
                 <div className="logout">
-                    <Button variant="contained" onClick={handleLogout}>LOGOUT</Button>
+                    <Button variant="contained" onClick={handleLogout}>
+                        LOGOUT
+                    </Button>
                 </div>
             </div>
-
-            
         </div>
     );
 }

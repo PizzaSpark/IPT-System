@@ -27,6 +27,15 @@ function Login() {
     };
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const role = localStorage.getItem('role');
+        if (role === 'user') {
+            navigate('/dashboard');
+        } else if (role === 'student') {
+            navigate('/studentdashboard');
+        }
+    }, []);
+
     const handleLogin = async (e) => {
         e.preventDefault();
 
@@ -36,6 +45,8 @@ function Login() {
                 credentials
             );
             const result = response.data;
+            localStorage.setItem('role', result.role);
+
             if (result.role == "user") {
                 navigate("/dashboard");
             }
