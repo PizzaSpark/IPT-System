@@ -29,7 +29,7 @@ function Sidebar({ role = "user" }) {
                     </div>
                 </LinkOrText>
 
-                <LinkOrText to="/addstudent">
+                {/* <LinkOrText to="/addstudent">
                     <div className="tilecontent">
                         <PersonAddAlt1 />
                         <p>ADD STUDENT</p>
@@ -41,7 +41,7 @@ function Sidebar({ role = "user" }) {
                         <ViewList />
                         <p>VIEW STUDENTS</p>
                     </div>
-                </LinkOrText>
+                </LinkOrText> */}
 
                 <LinkOrText to="/viewusers">
                     <div className="tilecontent">
